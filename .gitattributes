@@ -1,0 +1,13 @@
+*.pdf binary
+*.png binary
+*.zip binary
+*.pt binary
+*.pkl binary
+*.csv text eol=lf
+*.py text eol=lf
+*.js text eol=lf
+*.css text eol=lf
+*.html text eol=lf
+*.md text eol=lf
+*.json text eol=lf
+*.ipynb text eol=lf

@@ -1,0 +1,72 @@
+{
+  "purpose": "Denoising autoencoder feature-learning preprocessing; not synthetic-data generation.",
+  "input_rows": 2018,
+  "split_rows": {
+    "train": 1485,
+    "validation": 245,
+    "test": 288
+  },
+  "numeric_features": [
+    "CROP_AREA",
+    "CENTROID_X",
+    "CENTROID_Y",
+    "WEATHER_DAY_COUNT",
+    "TMAX_MEAN",
+    "TMIN_MEAN",
+    "TAVG_MEAN",
+    "VPRES_MEAN",
+    "WSPD_MEAN",
+    "PREC_TOTAL",
+    "ET0_TOTAL",
+    "RAD_TOTAL",
+    "RELH_MEAN",
+    "PS_MEAN",
+    "GDD_BASE10",
+    "AREA_FRACTION",
+    "TEMP_RANGE_MEAN",
+    "WATER_BALANCE_PROXY",
+    "RAIN_PER_GDD",
+    "RADIATION_PER_GDD",
+    "CROP_AREA_LOG1P"
+  ],
+  "categorical_features": [
+    "STATE",
+    "SEASON"
+  ],
+  "latent_dim": 8,
+  "architecture": [
+    21,
+    64,
+    32,
+    8,
+    32,
+    64,
+    21
+  ],
+  "epochs": 180,
+  "epochs_completed": 180,
+  "best_epoch": 178,
+  "best_validation_reconstruction_mse": 0.07724106311798096,
+  "input_path": "C:\\PROJECTS\\CROP DISEASE DETECTION AND MONITORING\\DATASET\\merged\\rice_master.csv",
+  "predictor_columns": [
+    "AE_LATENT_01",
+    "AE_LATENT_02",
+    "AE_LATENT_03",
+    "AE_LATENT_04",
+    "AE_LATENT_05",
+    "AE_LATENT_06",
+    "AE_LATENT_07",
+    "AE_LATENT_08",
+    "categorical__STATE_Andhra Pradesh",
+    "categorical__STATE_Karnataka",
+    "categorical__STATE_Tamil Nadu",
+    "categorical__STATE_Telangana",
+    "categorical__SEASON_Kharif",
+    "categorical__SEASON_Rabi",
+    "categorical__SEASON_Summer",
+    "AE_RECONSTRUCTION_MSE"
+  ],
+  "noise_std": 0.05,
+  "dropout": 0.1,
+  "device": "cpu"
+}

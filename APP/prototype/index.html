@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Verdant | Rice Yield Studio</title><link rel="stylesheet" href="styles.css"></head>
+<body>
+<aside class="sidebar">
+ <a class="brand" href="#overview"><span class="brandmark">v</span>verdant<span class="beta">BETA</span></a>
+ <div class="workspace-label">RICE YIELD STUDIO</div>
+ <nav aria-label="Main navigation">
+  <button class="nav active" data-view="overview"><span>◈</span>Overview</button>
+  <button class="nav" data-view="estimate"><span>↗</span>Yield preview</button>
+  <button class="nav" data-view="data"><span>▤</span>Data pipeline</button>
+  <button class="nav" data-view="models"><span>◎</span>Models & learning</button>
+ </nav>
+ <div class="sidebar-bottom"><span class="tiny-dot"></span> Four-state research cohort<p>Built for a clearer view<br>of the growing season.</p><small>R Ritwik · Joshith G</small></div>
+</aside>
+<main>
+<header><span>Workspace / <b id="breadcrumb">Overview</b></span><span class="status"><i></i> Interface prototype · v0.1</span></header>
+<section id="overview" class="view">
+ <div class="eyebrow">ROOTED IN DATA. DESIGNED FOR GROWTH.</div>
+ <div class="intro"><div><h1>A clearer outlook<br>for every harvest<span>.</span></h1><p>Explore how crop records and seasonal weather become<br class="desktop"> an informed rice-yield estimate.</p></div><button class="primary" data-goto="estimate">Explore yield preview <span>↗</span></button></div>
+ <div class="hero">
+  <div class="hero-copy"><span class="pill">SOUTH INDIA / RICE</span><h2>Small signals.<br>A bigger picture.</h2><p>Three data sources. One connected workflow.<br>From district records to learned features.</p><button class="light-button" data-goto="data">Follow the data <span>→</span></button></div>
+  <div class="field-art" aria-label="Abstract illustration of agricultural fields">
+   <svg viewBox="0 0 560 330" role="img"><defs><linearGradient id="field" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#aac49a"/><stop offset="1" stop-color="#47765e"/></linearGradient></defs><ellipse cx="310" cy="280" rx="215" ry="28" fill="#133d31" opacity=".25"/><g transform="translate(40,10)"><path d="M260 40 475 152 260 276 45 158Z" fill="#cbd9a9"/><path d="m260 40 68 35-216 123-67-40Z" fill="#9bb879"/><path d="m338 81 63 33-215 126-63-37Z" fill="url(#field)"/><path d="m409 119 66 33-215 124-64-33Z" fill="#e3c981"/><g stroke="#f5f1dc" stroke-width="3" opacity=".55"><path d="m94 166 210-119"/><path d="m106 177 210-120"/><path d="m153 207 211-123"/><path d="m170 217 211-124"/><path d="m231 248 212-124"/><path d="m245 258 212-126"/></g><path d="M45 158v15l215 122v-19Z" fill="#698951"/><path d="M260 276v19l215-127v-16Z" fill="#527547"/><g fill="#dfe9ce"><circle cx="261" cy="40" r="5"/><circle cx="475" cy="152" r="5"/><circle cx="260" cy="276" r="5"/></g></g></svg>
+   <div class="floating-signal"><span class="tiny-dot"></span> Weather × crop context</div>
+  </div>
+ </div>
+ <div class="metrics"><article><span>Source families</span><strong>03</strong><small>Crop records · boundaries · weather</small></article><article><span>Merged observations</span><strong>2,018</strong><small>Rice district-year-season records</small></article><article><span>Original master columns</span><strong>30</strong><small>21 numeric preprocessing predictors</small></article><article><span>States covered</span><strong>04</strong><small>AP · Karnataka · Tamil Nadu · Telangana</small></article></div>
+ <div class="two-col"><article class="panel"><div class="panel-heading"><h3>From sources to insight</h3><button class="text-button" data-goto="data">View pipeline →</button></div><div class="mini-flow"><div><span>01</span><b>Raw sources</b><small>3 preserved files</small></div><i>→</i><div><span>02</span><b>One master</b><small>2,018 × 30</small></div><i>→</i><div><span>03</span><b>Learned features</b><small>8 DAE latent values</small></div></div></article><article class="panel callout"><span class="eyebrow">BUILD STATUS</span><h3>Preprocessing is ready.<br>Yield training is next.</h3><p>The Denoising Autoencoder has been fitted. This prototype demonstrates the interface; its yield outputs are illustrative.</p></article></div>
+</section>
+<section id="estimate" class="view hidden">
+ <div class="eyebrow">HARVEST OUTLOOK / DEMONSTRATION</div><h1>Make the season<br>come into focus<span>.</span></h1><p class="lead">Try the proposed input-to-output experience. No trained yield model runs in this preview.</p>
+ <div class="demo-notice"><b>Demo mode</b> The displayed 4.20 t/ha is a fixed illustrative value, independent of weather or model inference.</div>
+ <div class="estimate-grid"><form id="yield-form" class="panel"><h3>Your crop context</h3><div class="form-grid">
+  <label>State<select id="state"><option>Andhra Pradesh</option><option>Karnataka</option><option>Tamil Nadu</option><option>Telangana</option></select></label>
+  <label>District<select id="district"></select></label>
+  <label>Season<select id="season"><option>Kharif</option><option>Rabi</option><option>Summer</option><option>Autumn</option><option>Winter</option></select></label>
+  <label>Crop year<input id="year" type="number" value="2019" min="2001" max="2100" required></label>
+  <label>Crop area (hectares)<input id="area" type="number" min="0.01" max="1000000" step="0.01" value="12" required></label>
+  <label>Crop<input value="Rice" readonly></label>
+ </div><div class="weather-preview"><span class="tiny-dot"></span><div><b>Seasonal weather context</b><p>Future service: NASA POWER lookup or daily-weather upload. This prototype uses no weather API.</p></div></div>
+ <button class="primary wide" type="submit" id="preview-button">Preview harvest outlook <span>↗</span></button><p class="fine">Coordinates, GDD, seasonal summaries and area fraction will be calculated by the future service.</p></form>
+ <div><article class="panel result-panel" aria-live="polite"><span class="eyebrow">YOUR HARVEST PREVIEW</span><div id="empty-result"><div class="empty-icon">↗</div><h3>A season of possibilities.</h3><p>Enter crop context and preview the proposed result card.</p></div><div id="result" class="hidden"><span class="result-label">Illustrative yield · not a trained prediction</span><div class="yield-number">4.20 <span>t/ha</span></div><div class="result-context" id="result-context"></div><div class="production"><span>Illustrative production</span><b id="production"></b><small>Demo yield × your crop area</small></div><div class="result-note">No confidence interval or disease diagnosis is calculated. Model performance will be added after validation.</div></div></article><article class="panel computational"><h3>Inside the future computation</h3><ol id="compute-flow"><li>Validate location, season and area</li><li>Obtain weather and create 21 predictors</li><li>Apply fitted imputer, scaler and encoding</li><li>Encode using the Denoising Autoencoder</li><li>Run a trained MLP or GBDT regressor</li><li>Return rice yield in tonnes/hectare</li></ol><small>These stages are illustrated here; only input validation and the fixed demo calculation run.</small></article></div></div>
+</section>
+<section id="data" class="view hidden">
+ <div class="eyebrow">TRACEABLE BY DESIGN</div><h1>One dataset.<br>A clear lineage<span>.</span></h1><p class="lead">Real crop records and weather reanalysis, merged into one reproducible table.</p>
+ <div class="source-grid"><article class="panel"><span class="source-number">01</span><h3>Government crop statistics</h3><p>Area, production, crop, district, season and year. Yield is production divided by area.</p><code>raw/government/crop_statistics.csv</code></article><article class="panel"><span class="source-number">02</span><h3>GADM 4.1 boundaries</h3><p>District geometry and name matching; representative coordinates for weather queries.</p><code>raw/boundaries/india_districts.geojson.zip</code></article><article class="panel"><span class="source-number">03</span><h3>NASA POWER weather</h3><p>Daily temperature, rainfall, radiation, humidity, wind, pressure and evapotranspiration proxy.</p><code>raw/weather/daily_weather.csv</code></article></div>
+ <article class="panel pipeline-panel"><h3>The preparation pipeline</h3><div class="pipeline-row"><div><b>Preserve</b><small>3 raw source files</small></div><span>→</span><div><b>Merge</b><small>District + year + season</small></div><span>→</span><div><b>Aggregate</b><small>Weather means/totals + GDD</small></div><span>→</span><div><b>Prepare</b><small>Train-only transforms + DAE</small></div></div><div class="dataset-banner"><span>MASTER DATASET</span><b>rice_master.csv</b><small>2,018 rows · 30 columns · 2001–2019</small></div></article>
+ <div class="two-col"><article class="panel"><h3>Where training starts</h3><table><thead><tr><th>Split</th><th>Years</th><th>Rows</th></tr></thead><tbody><tr><td>Training</td><td>2001–2015</td><td>1,485</td></tr><tr><td>Validation</td><td>2016–2017</td><td>245</td></tr><tr><td>Test</td><td>2018–2019</td><td>288</td></tr></tbody></table><p>Both standard/ and autoencoder/ contain train.csv, validation.csv and test.csv. The manifest names safe predictors.</p></article><article class="panel"><h3>What we keep out of inputs</h3><div class="tags"><span>PRODUCTION_TONNES</span><span>YIELD</span><span>District identifiers</span><span>FYEAR</span><span>MATCH_STATUS</span></div><p>YIELD is the supervised target. Production would leak it. Identifiers and match status remain metadata.</p><p class="fine">Autumn and Winter are unseen training categories. Weather coverage and approximate season windows are documented limitations.</p></article></div>
+</section>
+<section id="models" class="view hidden">
+ <div class="eyebrow">MODEL NAMES / EXPLICIT ROLES</div><h1>Learning with<br>a clear purpose<span>.</span></h1><p class="lead">Preprocessing learns a representation. The yield model learns the relationship with the harvest.</p>
+ <div class="model-list">
+ <article class="panel model"><div><span class="model-tag ready">PREPROCESSING · FITTED</span><h3>Denoising Autoencoder (DAE)</h3><p>21 → 64 → 32 → 8 → 32 → 64 → 21. Learns to reconstruct clean predictors from noisy standardized inputs. Exports 8 latent features.</p><code>pre-processing/denoising_autoencoder.py</code></div><strong>8<span>latent features</span></strong></article>
+ <article class="panel model"><div><span class="model-tag">CONVENTIONAL PREPROCESSING · FITTED</span><h3>SimpleImputer + StandardScaler + OneHotEncoder</h3><p>Training-set median filling, z-score scaling and state/season indicators. These transforms precede the DAE and also supply a conventional baseline representation.</p></div><strong>28<span>baseline predictors</span></strong></article>
+ <article class="panel model"><div><span class="model-tag">YIELD COMPUTATION · NOT TRAINED</span><h3>HistGradientBoostingRegressor (GBDT)</h3><p>Tabular baseline and controlled comparison. Learns nonlinear decision rules from conventional or DAE predictors and yield labels.</p></div><strong>01<span>yield output</span></strong></article>
+ <article class="panel model"><div><span class="model-tag">TABULAR DL COMPUTATION · NOT TRAINED</span><h3>Multilayer Perceptron (MLP) regressor</h3><p>Dense layers 64 and 32 connect latent/context inputs to the yield target. This is the initial tabular DL model, not the original paper's sequence model.</p></div><strong>64/32<span>hidden units</span></strong></article>
+ <article class="panel model"><div><span class="model-tag">PAPER-BASED SEQUENCE MODELS · FUTURE</span><h3>Long Short-Term Memory (LSTM) + 1D CNN</h3><p>LSTM learns dependencies across weather steps. One-dimensional convolution learns local temporal patterns. Both require weather sequence preparation and supervised training.</p></div><strong>10<span>weather channels</span></strong></article>
+ </div><p class="fine">No trained yield model, disease detector, nutrient classifier or calibrated uncertainty model is connected to this prototype.</p>
+</section>
+<footer>Verdant · South India rice research <span>Interface preview. Every estimate is explicitly illustrative.</span></footer>
+</main><script src="app.js"></script>
+</body></html>

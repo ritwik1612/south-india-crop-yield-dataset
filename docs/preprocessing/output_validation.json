@@ -1,0 +1,60 @@
+{
+  "rows": 2018,
+  "columns": 30,
+  "state_counts": {
+    "Karnataka": 722,
+    "Tamil Nadu": 612,
+    "Andhra Pradesh": 572,
+    "Telangana": 112
+  },
+  "season_counts": {
+    "Kharif": 1037,
+    "Rabi": 492,
+    "Summer": 345,
+    "Winter": 75,
+    "Autumn": 69
+  },
+  "missing_master_cells": 0,
+  "representations": {
+    "standard": {
+      "train": {
+        "rows": 1485,
+        "predictors": 28
+      },
+      "validation": {
+        "rows": 245,
+        "predictors": 28
+      },
+      "test": {
+        "rows": 288,
+        "predictors": 28
+      }
+    },
+    "autoencoder": {
+      "train": {
+        "rows": 1485,
+        "predictors": 16
+      },
+      "validation": {
+        "rows": 245,
+        "predictors": 16
+      },
+      "test": {
+        "rows": 288,
+        "predictors": 16
+      }
+    }
+  },
+  "unseen_validation_test_seasons": [
+    "Autumn",
+    "Winter"
+  ],
+  "checks_passed": [
+    "split membership",
+    "label preservation",
+    "no duplicate master keys",
+    "finite predictors",
+    "explicit non-leaking predictor manifest",
+    "saved DAE checkpoint reproduces exported latent features"
+  ]
+}

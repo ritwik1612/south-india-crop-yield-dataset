@@ -1,0 +1,22 @@
+{
+  "verified_on": "2026-10-08",
+  "api_community_used_in_original_download": "RE",
+  "source": "https://power.larc.nasa.gov/api/temporal/daily/point?parameters=ALLSKY_SFC_SW_DWN,EVLAND,T2M,RH2M,WS2M,PRECTOTCORR,PS&community=RE&longitude=80&latitude=16&start=20190101&end=20190102&format=JSON",
+  "daily_units": {
+    "TMAX": "degrees C",
+    "TMIN": "degrees C",
+    "TAVG": "degrees C",
+    "VPRES": "hPa, derived from temperature and relative humidity",
+    "WSPD": "m/s",
+    "PREC": "mm/day",
+    "ET0": "EVLAND land evaporation, mm/day, retained as a proxy",
+    "RAD": "kWh/m2/day",
+    "RELH": "%",
+    "PS": "kPa"
+  },
+  "seasonal_units": {
+    "PREC_TOTAL": "mm",
+    "ET0_TOTAL": "mm land-evaporation proxy",
+    "RAD_TOTAL": "kWh/m2"
+  }
+}
